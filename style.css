@@ -30,6 +30,85 @@ canvas {
     display: block;
 }
 
+/* Bird styling */
+.bird {
+    position: absolute;
+    width: 34px;
+    height: 24px;
+    background-color: #f8e71c;
+    border-radius: 50% 50% 50% 20%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transform-origin: center;
+    animation: fly 0.6s infinite alternate;
+}
+
+.bird::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 11;
+}
+
+.bird::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 50%;
+    z-index: 12;
+}
+
+.wing {
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: #e0c800;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(-20deg);
+    bottom: -2px;
+    left: 10px;
+    z-index: 9;
+    animation: flap 0.3s infinite alternate;
+}
+
+.beak {
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    background-color: #ff7700;
+    border-radius: 50% 50% 50% 50%;
+    right: -4px;
+    top: 11px;
+    z-index: 11;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-5px) rotate(-5deg);
+    }
+}
+
+@keyframes flap {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
 #score-display {
     position: absolute;
     top: 20px;
